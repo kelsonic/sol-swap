@@ -5,5 +5,51 @@ nav {
   display: flex;
   height: 65px;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 50px 0 45px;
+
+  .logo {
+    color: #fff;
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+
+  .wallet {
+    height: 12px;
+    margin-right: 5px;
+    margin-top: -3px;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+    li {
+      align-items: center;
+      display: flex;
+      height: 66px;
+      justify-content: center;
+      margin-bottom: -1px;
+      padding: 0 20px;
+      text-align: center;
+
+      &.selected {
+        border-bottom: 2px solid #6a49fe;
+        color: #ffffff;
+      }
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button {
+    align-items: center;
+    border: 1px solid #5ac4be;
+    height: 32px;
+    padding: 0 15px;
+  }
 }
