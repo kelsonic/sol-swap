@@ -10,7 +10,7 @@ export const Nav = () => {
     <nav>
       {/* Logo nav item */}
       <Link className="logo" to="/">
-        Kelsonic Swap
+        Sol Swap
       </Link>
 
       {/* Nav items */}
