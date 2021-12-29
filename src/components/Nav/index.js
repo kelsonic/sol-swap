@@ -1,11 +1,15 @@
 // Node modules.
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 // Relative imports.
-import wallet from "../../assets/images/wallet.png";
 import "./styles.scss";
+import walletImage from "../../assets/images/wallet.png";
+import { MODAL_WALLETS } from "../../containers/Modal/constants";
+import { ModalContext } from "../../containers/Modal/context";
 
 export const Nav = () => {
+  const [_, setModalType] = useContext(ModalContext);
+
   return (
     <nav>
       {/* Logo nav item */}
@@ -37,8 +41,8 @@ export const Nav = () => {
       </ul>
 
       {/* Connect to wallet */}
-      <button type="button">
-        <img alt="wallet" className="wallet" src={wallet} /> Connect
+      <button onClick={() => setModalType(MODAL_WALLETS)} type="button">
+        <img alt="wallet" className="wallet" src={walletImage} /> Connect
       </button>
     </nav>
   );
