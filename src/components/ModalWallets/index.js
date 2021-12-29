@@ -30,6 +30,7 @@ const ModalWallets = () => {
         const provider = wallet.getProvider();
         await provider.connect();
         setWallet(provider);
+        setModalType();
       } catch (error) {
         console.error("User rejected request", error);
       }

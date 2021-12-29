@@ -6,8 +6,10 @@ import "./styles.scss";
 import walletImage from "../../assets/images/wallet.png";
 import { MODAL_WALLETS } from "../../containers/Modal/constants";
 import { ModalContext } from "../../containers/Modal/context";
+import { WalletContext } from "../../containers/Wallet/context";
 
 export const Nav = () => {
+  const [wallet, __] = useContext(WalletContext);
   const [_, setModalType] = useContext(ModalContext);
 
   return (
@@ -40,10 +42,24 @@ export const Nav = () => {
         </li>
       </ul>
 
-      {/* Connect to wallet */}
-      <button onClick={() => setModalType(MODAL_WALLETS)} type="button">
-        <img alt="wallet" className="wallet" src={walletImage} /> Connect
-      </button>
+      {wallet?.isConnected ? (
+        <button
+          className="connected"
+          onClick={() => setModalType(MODAL_WALLETS)}
+          type="button"
+        >
+          <img alt="wallet" className="wallet" src={walletImage} />{" "}
+          {wallet?.publicKey?.toBase58?.()?.slice(0, 4)} ...{" "}
+          {wallet?.publicKey?.toBase58?.()?.slice(-4)}
+        </button>
+      ) : (
+        <>
+          {/* Connect to wallet */}
+          <button onClick={() => setModalType(MODAL_WALLETS)} type="button">
+            <img alt="wallet" className="wallet" src={walletImage} /> Connect
+          </button>
+        </>
+      )}
     </nav>
   );
 };

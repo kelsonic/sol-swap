@@ -50,6 +50,12 @@ nav {
     align-items: center;
     border: 1px solid #5ac4be;
     height: 32px;
+    letter-spacing: 0px;
     padding: 0 15px;
+    position: relative;
+
+    &.connected {
+      color: #5ac4be;
+    }
   }
 }
